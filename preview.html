@@ -1,0 +1,174 @@
+<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><style>@import url('https://fonts.googleapis.com/css2?family=Allura&family=Poppins:wght@400;500;600;700;800&display=swap');
+
+:root {
+  --brand-burgundy: #72151a;
+  --brand-burgundy-deep: #5b0e13;
+  --brand-burgundy-soft: #8a2d32;
+  --brand-gold: #d99a05;
+  --sky-1: #f3fbff;
+  --sky-2: #dff3ff;
+  --sky-3: #b9e2ff;
+  --cream: #fff8ef;
+  --paper: #f7ead7;
+  --text: #172437;
+  --muted: #536071;
+  --white: #ffffff;
+  --max-width: 1240px;
+  --radius-pill: 999px;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; color: var(--text); font-family: 'Poppins', sans-serif; background: #fff; }
+a { color: inherit; text-decoration: none; }
+img { display: block; max-width: 100%; }
+.container { width: min(calc(100% - 48px), var(--max-width)); margin-inline: auto; }
+
+.site-header { height: 84px; background: rgba(255,255,255,.98); position: relative; z-index: 30; }
+.nav-shell { width: min(calc(100% - 48px), 1280px); height: 100%; margin: auto; display: flex; align-items: center; gap: 28px; }
+.brand { width: 235px; height: 72px; overflow: hidden; display: flex; align-items: center; flex: 0 0 auto; }
+.brand img { width: 225px; object-fit: cover; object-position: center; }
+.main-nav { display: flex; align-items: center; justify-content: center; gap: 30px; flex: 1; font-size: 14px; }
+.main-nav a { position: relative; padding: 30px 0 24px; }
+.main-nav a.active { color: var(--brand-burgundy); font-weight: 600; }
+.main-nav a.active::after { content: ''; position: absolute; left: 0; right: 0; bottom: 18px; height: 2px; background: var(--brand-burgundy); }
+.nav-actions { display: flex; align-items: center; gap: 18px; flex: 0 0 auto; }
+.phone-pill, .primary-button, .outline-button { display: inline-flex; align-items: center; justify-content: center; gap: 14px; border-radius: var(--radius-pill); font-weight: 600; transition: transform .2s ease, box-shadow .2s ease, background .2s ease; }
+.phone-pill { height: 44px; padding: 0 23px; border: 1.6px solid var(--brand-burgundy); color: var(--brand-burgundy); font-size: 14px; }
+.primary-button { min-width: 188px; height: 50px; padding: 0 28px; background: linear-gradient(135deg, #7f171c, #5a0d12); color: #fff; box-shadow: 0 8px 20px rgba(99,16,20,.12); }
+.primary-button:hover, .outline-button:hover, .phone-pill:hover { transform: translateY(-2px); }
+.primary-button.compact { min-width: 175px; height: 44px; font-size: 14px; }
+.outline-button { min-width: 177px; height: 50px; padding: 0 26px; border: 1.8px solid var(--brand-burgundy); color: var(--brand-burgundy); background: rgba(255,255,255,.62); }
+.menu-button { display:none; border:0; background:transparent; padding:8px; }
+.menu-button span { display:block; width:27px; height:2px; background:var(--brand-burgundy); margin:5px; }
+
+.hero { position: relative; overflow: hidden; min-height: 480px; background: linear-gradient(108deg, #fff 0%, var(--sky-1) 32%, var(--sky-2) 65%, #d4efff 100%); }
+.hero::before { content:''; position:absolute; left:-5%; top:-44px; width:56%; height:95px; background:#fff; border-radius: 0 0 70% 55%; transform: rotate(1deg); z-index:4; }
+.hero::after { content:''; position:absolute; bottom:-38px; left:-4%; width:110%; height:85px; background:#fff; border-radius: 55% 45% 0 0 / 50% 55% 0 0; z-index:5; }
+.hero-content { position:relative; z-index:8; min-height:480px; display:grid; grid-template-columns: 42% 58%; align-items:center; }
+.hero-copy { padding: 30px 0 65px 10px; position:relative; z-index:10; }
+.hero-copy h1, .belong-copy h2 { margin: 0; color: var(--brand-burgundy); font-family: 'Allura', 'Brittany Signature', cursive; font-weight:400; letter-spacing:.2px; }
+.hero-copy h1 { font-size: clamp(72px, 6.1vw, 104px); line-height: .72; transform: rotate(-1deg); }
+.gold-swoosh { width: 125px; height: 7px; border-top: 4px solid var(--brand-gold); border-radius: 50%; transform: rotate(-5deg); margin: 10px 0 15px 155px; }
+.hero-copy p { font-size: 18px; line-height:1.35; margin:0 0 20px; color:#2e3a4b; }
+.hero-actions { display:flex; gap:18px; flex-wrap:wrap; }
+.hero-visual { height: 100%; position: relative; align-self: stretch; overflow:hidden; clip-path: ellipse(73% 74% at 67% 49%); }
+.hero-visual img { width:100%; height:100%; object-fit:cover; object-position:center 48%; transform: scale(1.02); }
+.hero-image-overlay { position:absolute; inset:0; background:linear-gradient(90deg, rgba(224,244,255,.9) 0%, rgba(224,244,255,.18) 20%, transparent 43%); }
+.hero-wave-one { position:absolute; width:620px; height:620px; border:70px solid rgba(169,221,255,.29); border-radius:50%; left:425px; top:-205px; z-index:3; }
+.hero-wave-two { position:absolute; width:760px; height:400px; border:58px solid rgba(255,255,255,.36); border-radius:50%; right:-340px; bottom:-260px; z-index:3; }
+.petal { position:absolute; background:rgba(175,222,249,.78); border-radius: 100% 0 100% 0; width:26px; height:65px; bottom:25px; right:30px; transform:rotate(20deg); }
+.petal-two { right:82px; bottom:9px; width:22px; height:55px; transform:rotate(-18deg); }
+
+.service-strip { background:#fff; position:relative; z-index:11; padding: 18px 0 30px; }
+.service-grid { width:min(calc(100% - 80px), 1040px); margin:auto; display:grid; grid-template-columns:repeat(5,1fr); }
+.service-item { min-height:110px; display:flex; flex-direction:column; align-items:center; justify-content:center; position:relative; text-align:center; }
+.service-divider { position:absolute; right:0; top:30px; width:1px; height:48px; background:#dedede; }
+.service-icon { width:72px; height:72px; display:grid; place-items:center; border-radius:50%; background:linear-gradient(145deg,#fff5f4,#f5ecea); margin-bottom:5px; }
+.service-icon svg { width:38px; height:38px; fill:none; stroke:var(--brand-burgundy); stroke-width:2.6; stroke-linejoin:round; stroke-linecap:round; }
+.service-icon svg path { vector-effect: non-scaling-stroke; }
+.service-label { font-size:15px; line-height:1.1; font-weight:500; }
+.service-label span { display:block; }
+
+.belong { position:relative; background: radial-gradient(circle at 68% 10%, rgba(255,255,255,.82), transparent 31%), linear-gradient(105deg,#f6eadb,#fff9f1 58%,#f0e1cd); overflow:hidden; }
+.belong::before { content:''; position:absolute; inset:0; opacity:.28; background-image: radial-gradient(rgba(112,70,30,.18) .8px, transparent .8px); background-size: 9px 9px; pointer-events:none; }
+.paper-edge.top { height:20px; position:absolute; top:-1px; left:0; right:0; background:#fff; clip-path:polygon(0 0,100% 0,100% 28%,97% 62%,94% 38%,90% 68%,85% 37%,79% 65%,75% 36%,70% 66%,65% 38%,59% 70%,54% 35%,49% 64%,44% 34%,39% 70%,34% 38%,29% 64%,24% 37%,18% 67%,13% 38%,8% 63%,3% 37%,0 62%); z-index:3; }
+.belong-inner { min-height:305px; position:relative; display:grid; grid-template-columns: 41% 43% 16%; align-items:center; padding:34px 0 25px; }
+.belong-copy { position:relative; z-index:5; padding-left:40px; }
+.belong-copy h2 { color:#12100f; font-size:70px; line-height:.9; }
+.gold-swoosh.short { width:125px; margin:5px 0 15px 105px; }
+.belong-copy p { max-width:420px; font-size:16px; line-height:1.45; margin:0 0 18px; }
+.photo-collage { position:relative; height:245px; z-index:4; }
+.polaroid { position:absolute; background:#fff; margin:0; padding:9px 9px 16px; box-shadow:0 4px 12px rgba(33,25,17,.18); }
+.polaroid img { width:100%; height:100%; object-fit:cover; }
+.polaroid-left { width:220px; height:260px; left:24px; top:-5px; transform:rotate(-6deg); }
+.polaroid-right { width:270px; height:215px; left:205px; top:55px; transform:rotate(-1.3deg); }
+.stamp { width:160px; height:165px; object-fit:cover; object-position:center; border-radius:50%; mix-blend-mode:multiply; transform:rotate(8deg); z-index:5; }
+.leaf-sprig { position:absolute; z-index:2; }
+.leaf-sprig::before { content:''; position:absolute; width:3px; height:160px; background:#4c6b38; transform:rotate(-22deg); transform-origin:bottom; }
+.leaf-sprig i { position:absolute; width:25px; height:58px; background:linear-gradient(145deg,#678955,#31532f); border-radius:100% 0 100% 0; transform:rotate(15deg); }
+.leaf-left { left:-10px; bottom:5px; }
+.leaf-left i:nth-child(1){left:7px;bottom:18px;transform:rotate(-60deg)}
+.leaf-left i:nth-child(2){left:29px;bottom:54px;transform:rotate(-20deg)}
+.leaf-left i:nth-child(3){left:48px;bottom:95px;transform:rotate(5deg)}
+.leaf-left i:nth-child(4){left:15px;bottom:115px;transform:rotate(-55deg)}
+.leaf-right { right:145px; bottom:0; transform:scale(.8) rotate(15deg); }
+.leaf-right i:nth-child(1){left:7px;bottom:18px;transform:rotate(-60deg)}
+.leaf-right i:nth-child(2){left:29px;bottom:54px;transform:rotate(-20deg)}
+.leaf-right i:nth-child(3){left:48px;bottom:95px;transform:rotate(5deg)}
+.location-bar { position:relative; z-index:8; background:linear-gradient(90deg,#651116,#7d171e); color:#fff; padding:16px 0 15px; font-size:13px; }
+.location-bar .container { padding-left:55px; }
+.demo-anchor { height:1px; }
+
+@media (max-width: 1180px) {
+  .main-nav { gap:18px; font-size:13px; }
+  .phone-pill { display:none; }
+  .hero-copy h1 { font-size:76px; }
+  .belong-inner { grid-template-columns: 40% 45% 15%; }
+  .polaroid-right { left:170px; }
+}
+
+@media (max-width: 930px) {
+  .site-header { height:76px; }
+  .nav-shell { justify-content:space-between; }
+  .brand { width:205px; }
+  .brand img { width:205px; }
+  .menu-button { display:block; order:3; }
+  .nav-actions { margin-left:auto; }
+  .nav-actions .primary-button { display:none; }
+  .main-nav { position:absolute; left:20px; right:20px; top:72px; background:#fff; border-radius:20px; box-shadow:0 18px 50px rgba(0,0,0,.12); padding:14px; display:none; flex-direction:column; align-items:stretch; gap:0; }
+  .main-nav.open { display:flex; }
+  .main-nav a { padding:13px 16px; }
+  .main-nav a.active::after { display:none; }
+  .hero { min-height:auto; }
+  .hero::before { width:74%; }
+  .hero-content { grid-template-columns:1fr; min-height:auto; width:100%; }
+  .hero-copy { width:min(calc(100% - 48px),680px); margin:auto; padding:75px 0 32px; text-align:left; }
+  .hero-copy h1 { font-size:86px; }
+  .hero-visual { min-height:390px; clip-path:ellipse(84% 75% at 62% 48%); }
+  .hero-wave-one { left:35%; top:-260px; }
+  .hero::after { bottom:-42px; }
+  .service-grid { width:min(calc(100% - 28px),720px); grid-template-columns:repeat(5,1fr); }
+  .service-icon { width:62px; height:62px; }
+  .service-label { font-size:12px; }
+  .belong-inner { grid-template-columns:1fr; padding:70px 0 45px; }
+  .belong-copy { padding:0 24px; width:min(100%,650px); }
+  .photo-collage { margin-top:35px; height:300px; }
+  .polaroid-left { left:12%; }
+  .polaroid-right { left:42%; }
+  .stamp { position:absolute; right:5%; bottom:55px; width:135px; height:140px; }
+}
+
+@media (max-width: 640px) {
+  .container, .nav-shell { width:min(calc(100% - 28px), var(--max-width)); }
+  .brand { width:190px; }
+  .brand img { width:190px; }
+  .hero-copy { width:calc(100% - 36px); padding-top:65px; }
+  .hero-copy h1 { font-size:64px; line-height:.78; }
+  .gold-swoosh { margin-left:100px; width:95px; }
+  .hero-copy p { font-size:15px; }
+  .desktop-only { display:none; }
+  .hero-actions { gap:10px; }
+  .primary-button, .outline-button { min-width:0; flex:1; padding:0 18px; font-size:14px; }
+  .hero-visual { min-height:300px; clip-path: ellipse(91% 73% at 62% 48%); }
+  .hero-wave-one { left:20%; top:-300px; }
+  .service-strip { padding:8px 0 22px; }
+  .service-grid { grid-template-columns:repeat(2,1fr); gap:8px; width:calc(100% - 24px); }
+  .service-item:last-child { grid-column:1/-1; }
+  .service-divider { display:none; }
+  .service-item { min-height:115px; border:1px solid #f1e7e3; border-radius:18px; background:#fff; }
+  .service-label { font-size:13px; }
+  .belong-copy h2 { font-size:58px; }
+  .belong-copy { padding:0 12px; }
+  .gold-swoosh.short { margin-left:72px; }
+  .photo-collage { height:330px; margin-top:28px; }
+  .polaroid-left { width:180px; height:220px; left:2%; top:0; }
+  .polaroid-right { width:210px; height:175px; left:auto; right:0; top:115px; }
+  .stamp { width:95px; height:98px; right:4%; bottom:20px; opacity:.85; }
+  .leaf-right { display:none; }
+  .location-bar .container { padding-left:0; text-align:center; font-size:12px; }
+}
+</style></head><body><main>
+<header class="site-header"><div class="nav-shell"><a class="brand" href="#home"><img src="public/assets/logo-reference.jpg"></a><nav class="main-nav"><a class="active">Home</a><a>About</a><a>Services</a><a>NDIS</a><a>Our Story</a><a>Contact</a></nav><div class="nav-actions"><a class="phone-pill">☎ 0415 611 071</a><a class="primary-button compact">Enquire Now <span>→</span></a></div></div></header>
+<section class="hero" id="home"><div class="hero-wave hero-wave-one"></div><div class="hero-wave hero-wave-two"></div><div class="hero-content container"><div class="hero-copy"><h1>Life looks better<br>together.</h1><div class="gold-swoosh"></div><p>Personalised NDIS support services<br class="desktop-only"> for individuals and families across Perth.</p><div class="hero-actions"><a class="primary-button">Get Support <span>→</span></a><a class="outline-button">How We Help</a></div></div><div class="hero-visual"><img src="public/assets/perth-skyline-reference.jpg"><div class="hero-image-overlay"></div><div class="petal petal-one"></div><div class="petal petal-two"></div></div></div></section>
+<section class="service-strip"><div class="service-grid"><div class="service-item"><div class="service-icon" style="font-size:32px;color:#72151a">❤</div><div class="service-label">Personal Care</div><span class="service-divider"></span></div><div class="service-item"><div class="service-icon" style="font-size:32px;color:#72151a">⌂</div><div class="service-label">Daily Living<br>Support</div><span class="service-divider"></span></div><div class="service-item"><div class="service-icon" style="font-size:32px;color:#72151a">♧</div><div class="service-label">Community<br>Participation</div><span class="service-divider"></span></div><div class="service-item"><div class="service-icon" style="font-size:32px;color:#72151a">▣</div><div class="service-label">Transport<br>Assistance</div><span class="service-divider"></span></div><div class="service-item"><div class="service-icon" style="font-size:32px;color:#72151a">♧</div><div class="service-label">Life Skills<br>Development</div></div></div></section><section class="belong"><div class="paper-edge top"></div><div class="belong-inner container"><div class="belong-copy"><h2>Everyone belongs.</h2><div class="gold-swoosh short"></div><p>We’re here to support you with care, respect and understanding</p><a class="primary-button">About Us <span>→</span></a></div><div class="photo-collage"><figure class="polaroid polaroid-left"><img src="public/assets/garden-support-reference.jpg"></figure><figure class="polaroid polaroid-right"><img src="public/assets/caregiver-reference.jpg"></figure></div><img class="stamp" src="public/assets/stamp-reference.jpg"></div><div class="location-bar"><div class="container">📍 <span>Proudly supporting individuals and families across Perth, WA</span></div></div></section></main></body></html>
