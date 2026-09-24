@@ -3246,3 +3246,480 @@ a.contact-info-value:hover {
     padding-bottom: 16px;
   }
 }
+
+/* ==============================================================
+   HOME — LIFE GALLERY (Sikuru masonry photo gallery)
+   Photos are the visual focus: plain white section, no card chrome,
+   no shadows. Items are display-only figures positioned by
+   SikuruMasonry.js; positioning animation is owned there, while the
+   section heading entrance is owned by SiteAnimations.js.
+   ============================================================== */
+.sikuru-life-gallery {
+  background: #fff;
+  padding: 84px 0 80px;
+}
+
+.sikuru-life-gallery-title {
+  margin: 0 0 36px;
+  font-size: clamp(28px, 3vw, 42px);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  color: var(--text);
+  text-align: left;
+  text-wrap: balance;
+}
+
+.sikuru-gallery {
+  position: relative;
+  width: 100%;
+}
+
+/* No-JS / pre-measure fallback: items flow in a calm static grid until
+   the client measures the container and takes over positioning. */
+.sikuru-gallery[data-gallery-measured='false'] {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.sikuru-gallery-item {
+  margin: 0;
+  overflow: hidden;
+  border-radius: 18px;
+  background: var(--sky-1);
+}
+
+.sikuru-gallery[data-gallery-measured='true'] .sikuru-gallery-item {
+  position: absolute;
+  top: 0;
+  left: 0;
+  will-change: transform, width, height;
+}
+
+.sikuru-gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* Desktop pointer hover only: barely-there zoom, clipped inside the
+   container. No tilt, captions, glow or cursor effects. */
+@media (hover: hover) and (pointer: fine) {
+  .sikuru-gallery-item img {
+    transform: scale(1);
+    transition: transform 300ms ease-out;
+  }
+
+  .sikuru-gallery-item:hover img {
+    transform: scale(1.015);
+  }
+}
+
+@media (max-width: 930px) {
+  .sikuru-life-gallery {
+    padding: 72px 0 68px;
+  }
+
+  .sikuru-life-gallery-title {
+    margin-bottom: 28px;
+  }
+
+  .sikuru-gallery[data-gallery-measured='false'] {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+  }
+}
+
+@media (max-width: 620px) {
+  .sikuru-life-gallery {
+    padding: 64px 0 60px;
+  }
+
+  .sikuru-life-gallery-title {
+    margin-bottom: 24px;
+    font-size: clamp(24px, 6.5vw, 32px);
+  }
+
+  .sikuru-gallery[data-gallery-measured='false'] {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sikuru-gallery-item img {
+    transform: none !important;
+    transition: none !important;
+  }
+}
+
+/* ==============================================================
+   HOME — TESTIMONIALS REEL
+   Faithful rebuild of the scroll-reel interaction in Sikuru skin:
+   three-column portrait reel (featured middle column, decorative
+   outer columns travelling opposite), synchronised character-rise
+   text, arrow + keyboard navigation. No scroll-jacking, no autoplay.
+   Column motion is owned by CSS transitions (exact reference easing);
+   text choreography is owned by SikuruTestimonials.js.
+   SiteAnimations.js owns only the heading reveal.
+   Portraits are temporary preview assets — replace before production.
+   ============================================================== */
+.sikuru-testimonials {
+  background:
+    radial-gradient(circle at 12% 18%, rgba(255, 255, 255, 0.85), transparent 34%),
+    linear-gradient(105deg, #f6eadb, #fff9f1 58%, #f0e1cd);
+  padding: 88px 0 84px;
+  overflow: clip;
+}
+
+.sikuru-testimonials-title {
+  margin: 0 0 28px;
+  font-size: clamp(28px, 3vw, 42px);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  color: var(--text);
+  text-align: left;
+  text-wrap: balance;
+}
+
+/* White panel containing the whole component. */
+.sikuru-t-panel {
+  background: #fff;
+  border: 1px solid #efe2d0;
+  border-radius: 30px;
+  padding: 52px 56px;
+}
+
+.sikuru-t {
+  display: grid;
+  grid-template-columns: minmax(0, 38%) minmax(0, 62%);
+  gap: 48px;
+  align-items: center;
+  outline-offset: 8px;
+}
+
+.sikuru-t:focus-visible {
+  outline: 2px solid var(--brand-burgundy);
+}
+
+/* Three-column reel: featured middle, decorative outer columns. */
+.sikuru-t-reel {
+  display: flex;
+  justify-content: center;
+  min-width: 0;
+}
+
+.sikuru-t-viewport {
+  height: 356px;
+  overflow: hidden;
+}
+
+.sikuru-t-columns {
+  display: grid;
+  grid-template-columns: repeat(3, 112px);
+  gap: 10px;
+}
+
+.sikuru-t-track {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  will-change: transform;
+  transition: transform 750ms cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+.sikuru-t-slot {
+  height: 112px;
+  display: grid;
+  place-items: center;
+  flex: 0 0 auto;
+}
+
+.sikuru-cell-deco {
+  width: 112px;
+  height: 112px;
+  flex: 0 0 auto;
+  border-radius: 18px;
+  background: linear-gradient(160deg, #fffcf7 0%, #f3ecdd 100%);
+  border: 1px solid rgba(23, 36, 55, 0.08);
+}
+
+.sikuru-cell-deco.is-alt {
+  background: linear-gradient(160deg, #f3fbff 0%, #e2f1fd 100%);
+}
+
+.sikuru-cell-featured {
+  width: 112px;
+  height: 112px;
+  display: block;
+  overflow: hidden;
+  border-radius: 20px;
+  background: var(--sky-1);
+  border: 1px solid rgba(114, 21, 26, 0.14);
+  box-shadow: 0 6px 18px rgba(23, 36, 55, 0.1);
+  opacity: 0.8;
+  filter: saturate(0.85);
+  transition: opacity 400ms ease, filter 400ms ease, box-shadow 400ms ease;
+}
+
+.sikuru-cell-featured img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.sikuru-cell-featured.is-active {
+  opacity: 1;
+  filter: none;
+  box-shadow:
+    0 0 0 2px var(--brand-burgundy),
+    0 8px 20px rgba(23, 36, 55, 0.12);
+}
+
+/* Right-hand content: quote, author, controls. */
+.sikuru-t-content {
+  min-width: 0;
+}
+
+.sikuru-t-text {
+  position: relative;
+  padding-top: 52px;
+}
+
+.sikuru-testimonials-mark {
+  position: absolute;
+  top: -18px;
+  left: -6px;
+  font-size: 110px;
+  font-weight: 700;
+  line-height: 1;
+  color: rgba(217, 154, 5, 0.3);
+  pointer-events: none;
+}
+
+.sikuru-t-text blockquote {
+  margin: 0;
+}
+
+.sikuru-t-text blockquote p {
+  margin: 0;
+  font-size: clamp(24px, 2.4vw, 32px);
+  font-weight: 500;
+  line-height: 1.34;
+  letter-spacing: -0.01em;
+  color: var(--text);
+  text-wrap: pretty;
+}
+
+.sikuru-char-word {
+  display: inline-block;
+  white-space: nowrap;
+}
+
+.sikuru-char {
+  display: inline-block;
+  will-change: transform, opacity;
+}
+
+.sikuru-t-author {
+  margin-top: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.sikuru-testimonials-name {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.sikuru-testimonials-context {
+  font-size: 14px;
+  color: var(--muted);
+}
+
+.sikuru-t-controls {
+  margin-top: 26px;
+  display: flex;
+  gap: 12px;
+}
+
+.sikuru-t-arrow {
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  border: 1.5px solid rgba(114, 21, 26, 0.35);
+  background: transparent;
+  color: var(--brand-burgundy);
+  font-size: 18px;
+  line-height: 1;
+  cursor: pointer;
+  transition: background 200ms ease, transform 200ms ease, opacity 200ms ease;
+}
+
+.sikuru-t-arrow:hover:not(:disabled) {
+  background: rgba(114, 21, 26, 0.06);
+  transform: translateY(-1px);
+}
+
+.sikuru-t-arrow:disabled {
+  opacity: 0.35;
+  cursor: default;
+}
+
+/* Reduced-motion fallback: simple vertical list, everything visible. */
+.sikuru-testimonials-list {
+  margin-top: 32px;
+  display: grid;
+  gap: 22px;
+}
+
+.sikuru-testimonials-static-quote {
+  margin: 0;
+  background: #fff;
+  border: 1px solid #efe2d0;
+  border-radius: 24px;
+  padding: 30px 30px 28px;
+}
+
+.sikuru-testimonials-static-quote p {
+  margin: 0 0 16px;
+  font-size: 18px;
+  line-height: 1.5;
+  color: var(--text);
+}
+
+.sikuru-testimonials-static-quote figcaption {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+@media (max-width: 930px) {
+  .sikuru-testimonials {
+    padding: 76px 0 72px;
+  }
+
+  .sikuru-t-panel {
+    padding: 40px 36px;
+    border-radius: 26px;
+  }
+
+  .sikuru-t {
+    grid-template-columns: minmax(0, 300px) minmax(0, 1fr);
+    gap: 32px;
+  }
+
+  .sikuru-t-viewport {
+    height: 268px;
+  }
+
+  .sikuru-t-columns {
+    grid-template-columns: repeat(3, 84px);
+    gap: 8px;
+  }
+
+  .sikuru-t-track {
+    gap: 8px;
+    transition-duration: 650ms;
+  }
+
+  .sikuru-t-slot {
+    height: 84px;
+  }
+
+  .sikuru-cell-deco,
+  .sikuru-cell-featured {
+    width: 84px;
+    height: 84px;
+    border-radius: 16px;
+  }
+
+  .sikuru-t-text {
+    padding-top: 44px;
+  }
+
+  .sikuru-testimonials-mark {
+    font-size: 84px;
+  }
+
+  .sikuru-t-text blockquote p {
+    font-size: clamp(20px, 3vw, 26px);
+  }
+}
+
+@media (max-width: 620px) {
+  .sikuru-testimonials {
+    padding: 64px 0 60px;
+  }
+
+  .sikuru-testimonials-title {
+    font-size: clamp(24px, 6.5vw, 32px);
+  }
+
+  .sikuru-t-panel {
+    padding: 32px 24px;
+    border-radius: 22px;
+  }
+
+  .sikuru-t {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .sikuru-t-viewport {
+    height: 232px;
+  }
+
+  .sikuru-t-columns {
+    grid-template-columns: repeat(3, 72px);
+    gap: 8px;
+  }
+
+  .sikuru-t-slot {
+    height: 72px;
+  }
+
+  .sikuru-cell-deco,
+  .sikuru-cell-featured {
+    width: 72px;
+    height: 72px;
+    border-radius: 14px;
+  }
+
+  .sikuru-t-text {
+    padding-top: 36px;
+  }
+
+  .sikuru-t-text blockquote p {
+    font-size: clamp(20px, 5.4vw, 24px);
+  }
+
+  .sikuru-testimonials-static-quote {
+    padding: 26px 22px 24px;
+    border-radius: 20px;
+  }
+
+  .sikuru-testimonials-static-quote p {
+    font-size: 16px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sikuru-t-track,
+  .sikuru-cell-featured {
+    transition: none !important;
+  }
+
+  .sikuru-t-arrow {
+    transition: none;
+  }
+}

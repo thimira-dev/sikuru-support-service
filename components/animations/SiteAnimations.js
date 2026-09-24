@@ -7,6 +7,8 @@ import { gsap, ScrollTrigger, useGSAP } from '../../lib/animations/gsap';
 // - [data-animate="home-hero"] (page-load, no ScrollTrigger)
 // - [data-animate="service-strip"] (ScrollTrigger, plays once)
 // - [data-animate="everyone-belongs"] (ScrollTrigger, plays once)
+// - [data-animate="gallery"] (ScrollTrigger heading only, plays once;
+//   masonry positioning/reflow is owned by SikuruMasonry.js)
 // - [data-animate="internal-hero"] (page-load, no ScrollTrigger)
 // - [data-animate="content-split"] (ScrollTrigger, plays once)
 // - [data-animate="card-grid"] (ScrollTrigger, plays once)
@@ -505,6 +507,110 @@ export default function SiteAnimations() {
             stampScale: 0.94,
             stampRotationOffset: -2,
             leafTravel: isSmallMobile ? 10 : 12,
+          });
+          return () => {
+            tl.scrollTrigger?.kill();
+            tl.kill();
+          };
+        });
+      }
+
+      // ---------------------------------------------------------------
+      // LIFE GALLERY HEADING (ScrollTrigger, plays once)
+      // Only the section heading animates here: opacity 0 -> 1,
+      // y 18px -> 0, ~0.6s, power2.out, triggered at top 82%.
+      // The photos themselves are owned by SikuruMasonry.js and receive
+      // no GSAP entrance layered on top of the masonry arrangement.
+      // ---------------------------------------------------------------
+      const galleryRoot = document.querySelector('[data-animate="gallery"]');
+      if (galleryRoot) {
+        const gq = gsap.utils.selector(galleryRoot);
+
+        const buildGalleryTimeline = ({ headingY }) => {
+          const tl = gsap.timeline({
+            defaults: { overwrite: 'auto' },
+            scrollTrigger: {
+              trigger: galleryRoot,
+              start: 'top 82%',
+              once: true,
+            },
+          });
+
+          tl.fromTo(
+            gq('[data-gallery="heading"]'),
+            { opacity: 0, y: headingY },
+            { opacity: 1, y: 0, duration: 0.6, ease: 'power2.out' },
+            0
+          );
+
+          return tl;
+        };
+
+        mm.add('(min-width: 931px)', () => {
+          const tl = buildGalleryTimeline({ headingY: 18 });
+          return () => {
+            tl.scrollTrigger?.kill();
+            tl.kill();
+          };
+        });
+
+        mm.add('(max-width: 930px)', () => {
+          const isSmallMobile = window.innerWidth <= 620;
+          const tl = buildGalleryTimeline({
+            headingY: isSmallMobile ? 12 : 14,
+          });
+          return () => {
+            tl.scrollTrigger?.kill();
+            tl.kill();
+          };
+        });
+      }
+
+      // ---------------------------------------------------------------
+      // TESTIMONIALS HEADING (ScrollTrigger, plays once)
+      // Only the section heading animates here: opacity 0 -> 1,
+      // y 18px -> 0, ~0.6s, power2.out, triggered at top 82%.
+      // The portrait reel and quote transitions are owned entirely by
+      // SikuruTestimonials.js and receive no animation here.
+      // ---------------------------------------------------------------
+      const testimonialsRoot = document.querySelector(
+        '[data-animate="testimonials"]'
+      );
+      if (testimonialsRoot) {
+        const tq = gsap.utils.selector(testimonialsRoot);
+
+        const buildTestimonialsTimeline = ({ headingY }) => {
+          const tl = gsap.timeline({
+            defaults: { overwrite: 'auto' },
+            scrollTrigger: {
+              trigger: testimonialsRoot,
+              start: 'top 82%',
+              once: true,
+            },
+          });
+
+          tl.fromTo(
+            tq('[data-testimonial-heading]'),
+            { opacity: 0, y: headingY },
+            { opacity: 1, y: 0, duration: 0.6, ease: 'power2.out' },
+            0
+          );
+
+          return tl;
+        };
+
+        mm.add('(min-width: 931px)', () => {
+          const tl = buildTestimonialsTimeline({ headingY: 18 });
+          return () => {
+            tl.scrollTrigger?.kill();
+            tl.kill();
+          };
+        });
+
+        mm.add('(max-width: 930px)', () => {
+          const isSmallMobile = window.innerWidth <= 620;
+          const tl = buildTestimonialsTimeline({
+            headingY: isSmallMobile ? 12 : 14,
           });
           return () => {
             tl.scrollTrigger?.kill();
