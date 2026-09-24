@@ -18,7 +18,7 @@ const steps = [
 
 export default function HowSupportWorks() {
   return (
-    <section className="our-approach how-support-works">
+    <section className="our-approach how-support-works" data-animate="process">
       <div className="our-approach-bg-decor" aria-hidden="true">
         <div className="our-approach-blob our-approach-blob-1" />
         <div className="our-approach-blob our-approach-blob-2" />
@@ -26,14 +26,14 @@ export default function HowSupportWorks() {
 
       <div className="our-approach-inner container">
         <div className="our-approach-heading-col">
-          <span className="section-label">HOW IT WORKS</span>
-          <h2 className="our-approach-title">Starting support should feel simple.</h2>
+          <span className="section-label" data-process="header">HOW IT WORKS</span>
+          <h2 className="our-approach-title" data-process="header">Starting support should feel simple.</h2>
         </div>
 
         <div className="our-approach-steps">
           {steps.map(({ num, title, text }) => (
-            <article className="our-approach-step" key={num}>
-              <span className="our-approach-num" aria-hidden="true">
+            <article className="our-approach-step" key={num} data-process="step">
+              <span className="our-approach-num" aria-hidden="true" data-process-number>
                 {num}
               </span>
               <div>

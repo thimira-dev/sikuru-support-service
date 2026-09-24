@@ -2,7 +2,7 @@ import Image from 'next/image';
 
 export default function AboutHero() {
   return (
-    <section className="about-hero">
+    <section className="about-hero" data-animate="internal-hero">
       <svg
         className="about-hero-clip-defs"
         width="0"
@@ -17,25 +17,25 @@ export default function AboutHero() {
         </defs>
       </svg>
 
-      <div className="about-hero-bg-decor" aria-hidden="true">
+      <div className="about-hero-bg-decor" aria-hidden="true" data-ih="decoration">
         <div className="about-hero-shape about-hero-shape-1" />
         <div className="about-hero-shape about-hero-shape-2" />
       </div>
 
       <div className="about-hero-inner container">
         <div className="about-hero-copy">
-          <span className="about-hero-eyebrow">ABOUT SIKURU</span>
-          <h1 className="about-hero-title">
+          <span className="about-hero-eyebrow" data-ih="eyebrow">ABOUT SIKURU</span>
+          <h1 className="about-hero-title" data-ih="title">
             Support centred<br />around people.
           </h1>
-          <div className="about-hero-swoosh" aria-hidden="true" />
-          <p className="about-hero-desc">
+          <div className="about-hero-swoosh" aria-hidden="true" data-ih="accent" />
+          <p className="about-hero-desc" data-ih="description">
             Sikuru Support Service is focused on providing thoughtful, personalised
             support that respects each person&rsquo;s choices, goals and way of life.
           </p>
         </div>
 
-        <div className="about-hero-visual">
+        <div className="about-hero-visual" data-ih="image">
           <div className="about-hero-image-wrap">
             <Image
               src="/assets/caregiver-reference.jpg"

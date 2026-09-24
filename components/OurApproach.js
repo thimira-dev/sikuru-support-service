@@ -18,7 +18,7 @@ export default function OurApproach() {
   ];
 
   return (
-    <section className="our-approach">
+    <section className="our-approach" data-animate="process">
       <div className="our-approach-bg-decor" aria-hidden="true">
         <div className="our-approach-blob our-approach-blob-1" />
         <div className="our-approach-blob our-approach-blob-2" />
@@ -26,14 +26,14 @@ export default function OurApproach() {
 
       <div className="our-approach-inner container">
         <div className="our-approach-heading-col">
-          <span className="section-label">OUR APPROACH</span>
-          <h2 className="our-approach-title">Support that starts with listening.</h2>
+          <span className="section-label" data-process="header">OUR APPROACH</span>
+          <h2 className="our-approach-title" data-process="header">Support that starts with listening.</h2>
         </div>
 
         <div className="our-approach-steps">
           {steps.map(({ num, title, text }) => (
-            <article className="our-approach-step" key={num}>
-              <span className="our-approach-num" aria-hidden="true">{num}</span>
+            <article className="our-approach-step" key={num} data-process="step">
+              <span className="our-approach-num" aria-hidden="true" data-process-number>{num}</span>
               <div>
                 <h3 className="our-approach-step-title">{title}</h3>
                 <p className="our-approach-step-text">{text}</p>

@@ -39,20 +39,20 @@ export default function AboutValues() {
   ];
 
   return (
-    <section className="about-values">
+    <section className="about-values" data-animate="card-grid">
       <div className="about-values-heading-decor" aria-hidden="true" />
       <div className="about-values-inner container">
-        <span className="section-label section-label--center">WHAT MATTERS TO US</span>
-        <h2 className="about-values-heading">Support shaped by what matters.</h2>
-        <p className="about-values-sub">
+        <span className="section-label section-label--center" data-cg="header">WHAT MATTERS TO US</span>
+        <h2 className="about-values-heading" data-cg="header">Support shaped by what matters.</h2>
+        <p className="about-values-sub" data-cg="header">
           Our approach is guided by simple principles that keep people at the
           centre of every interaction.
         </p>
 
         <div className="about-values-grid">
           {values.map(({ title, text, icon }) => (
-            <article className="about-value-card" key={title}>
-              <div className="about-value-icon" aria-hidden="true">
+            <article className="about-value-card" key={title} data-cg="card">
+              <div className="about-value-icon" aria-hidden="true" data-cg-icon>
                 {icon}
               </div>
               <h3 className="about-value-title">{title}</h3>

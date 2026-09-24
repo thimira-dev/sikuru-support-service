@@ -125,6 +125,26 @@ img {
   background: var(--brand-burgundy);
 }
 
+/* Subtle hover underline for desktop nav links. Uses ::before so the
+   active-link ::after bar is never duplicated or restyled. */
+.main-nav a::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 18px;
+  height: 2px;
+  background: var(--brand-burgundy);
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 200ms ease-out;
+}
+
+.main-nav a:hover::before,
+.main-nav a:focus-visible::before {
+  transform: scaleX(1);
+}
+
 .nav-actions {
   display: flex;
   align-items: center;
@@ -738,6 +758,10 @@ img {
   }
 
   .main-nav a.active::after {
+    display: none;
+  }
+
+  .main-nav a::before {
     display: none;
   }
 

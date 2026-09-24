@@ -23,12 +23,12 @@ const principles = [
 
 export default function StoryValues() {
   return (
-    <section className="about-values story-values">
+    <section className="about-values story-values" data-animate="card-grid">
       <div className="about-values-heading-decor" aria-hidden="true" />
       <div className="about-values-inner container">
-        <span className="section-label section-label--center">OUR PHILOSOPHY</span>
-        <h2 className="about-values-heading">What guides us.</h2>
-        <p className="about-values-sub">
+        <span className="section-label section-label--center" data-cg="header">OUR PHILOSOPHY</span>
+        <h2 className="about-values-heading" data-cg="header">What guides us.</h2>
+        <p className="about-values-sub" data-cg="header">
           Simple principles that keep people at the centre of every interaction.
         </p>
 
@@ -37,8 +37,9 @@ export default function StoryValues() {
             <article
               key={title}
               className={`story-value-block story-value-block--${tone}`}
+              data-cg="card"
             >
-              <div className="about-value-icon" aria-hidden="true">
+              <div className="about-value-icon" aria-hidden="true" data-cg-icon>
                 <svg viewBox="0 0 32 32" fill="none" aria-hidden="true">
                   <circle cx="16" cy="16" r="11" stroke="currentColor" strokeWidth="2" />
                   <path
