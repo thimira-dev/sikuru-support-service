@@ -20,7 +20,7 @@ const serviceLinks = [
 
 export default function Footer() {
   return (
-    <footer className="site-footer">
+    <footer className="site-footer" data-animate="footer">
       <div className="footer-wave" aria-hidden="true">
         <svg viewBox="0 0 1440 32" preserveAspectRatio="none" aria-hidden="true" focusable="false">
           <path d="M0,32 L0,20 C120,8 240,6 360,12 C480,18 600,24 720,20 C840,16 960,6 1080,10 C1200,14 1320,20 1440,14 L1440,32 Z" />
@@ -38,7 +38,7 @@ export default function Footer() {
         />
 
         <div className="container footer-grid">
-          <div className="footer-brand">
+          <div className="footer-brand" data-footer="brand">
             <Link href="/" className="footer-logo" aria-label="Sikuru Support Service home">
               <Image
                 src="/assets/sikuru-logo.png"
@@ -55,7 +55,7 @@ export default function Footer() {
             <span className="footer-gold-stroke" aria-hidden="true" />
           </div>
 
-          <nav className="footer-column" aria-label="Quick links">
+          <nav className="footer-column" aria-label="Quick links" data-footer="column">
             <h2 className="footer-heading">Quick Links</h2>
             <ul className="footer-links">
               {quickLinks.map((item) => (
@@ -68,7 +68,7 @@ export default function Footer() {
             </ul>
           </nav>
 
-          <nav className="footer-column" aria-label="Our services">
+          <nav className="footer-column" aria-label="Our services" data-footer="column">
             <h2 className="footer-heading">Our Services</h2>
             <ul className="footer-links">
               {serviceLinks.map((item) => (
@@ -81,7 +81,7 @@ export default function Footer() {
             </ul>
           </nav>
 
-          <div className="footer-column footer-contact">
+          <div className="footer-column footer-contact" data-footer="column">
             <h2 className="footer-heading">Get In Touch</h2>
             <p className="footer-contact-row">
               <span className="footer-contact-label">Phone</span>
@@ -96,7 +96,7 @@ export default function Footer() {
             <Link href="/contact" className="primary-button compact footer-enquire">
               Enquire Now <span aria-hidden="true">→</span>
             </Link>
-            <div className="leaf-sprig footer-sprig" aria-hidden="true">
+            <div className="leaf-sprig footer-sprig" aria-hidden="true" data-footer="decoration">
               <i />
               <i />
               <i />

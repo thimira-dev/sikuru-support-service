@@ -17,19 +17,19 @@ const services = [
 
 export default function ServicesOverview() {
   return (
-    <section className="services-overview">
+    <section className="services-overview" data-animate="card-grid">
       <div className="container services-overview-inner">
-        <span className="section-label section-label--center">WHAT WE OFFER</span>
-        <h2 className="services-overview-title">Support that fits around you.</h2>
-        <p className="services-overview-sub">
+        <span className="section-label section-label--center" data-cg="header">WHAT WE OFFER</span>
+        <h2 className="services-overview-title" data-cg="header">Support that fits around you.</h2>
+        <p className="services-overview-sub" data-cg="header">
           Every person is different. Sikuru&rsquo;s support is centred around
           individual needs, preferences and everyday life.
         </p>
 
         <div className="services-overview-grid">
           {services.map(({ label, Icon }) => (
-            <article className="services-overview-card" key={label}>
-              <div className="service-icon" aria-hidden="true">
+            <article className="services-overview-card" key={label} data-cg="card">
+              <div className="service-icon" aria-hidden="true" data-cg-icon>
                 <Icon />
               </div>
               <h3 className="services-overview-card-title">{label}</h3>

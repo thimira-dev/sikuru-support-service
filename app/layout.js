@@ -1,4 +1,5 @@
 import './globals.css';
+import SiteAnimations from '../components/animations/SiteAnimations';
 
 export const metadata = {
   title: {
@@ -18,7 +19,10 @@ export const viewport = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        {children}
+        <SiteAnimations />
+      </body>
     </html>
   );
 }

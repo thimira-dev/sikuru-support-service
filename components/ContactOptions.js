@@ -47,15 +47,15 @@ const options = [
 
 export default function ContactOptions() {
   return (
-    <section className="about-values contact-options" aria-label="Contact options">
+    <section className="about-values contact-options" aria-label="Contact options" data-animate="card-grid">
       <div className="about-values-inner container">
-        <span className="section-label section-label--center">GET IN TOUCH</span>
-        <h2 className="about-values-heading">Three simple ways to reach us.</h2>
+        <span className="section-label section-label--center" data-cg="header">GET IN TOUCH</span>
+        <h2 className="about-values-heading" data-cg="header">Three simple ways to reach us.</h2>
 
         <div className="about-values-grid contact-options-grid">
           {options.map(({ title, text, href, linkLabel, icon }) => (
-            <article className="about-value-card" key={title}>
-              <div className="about-value-icon" aria-hidden="true">
+            <article className="about-value-card" key={title} data-cg="card">
+              <div className="about-value-icon" aria-hidden="true" data-cg-icon>
                 {icon}
               </div>
               <h3 className="about-value-title">{title}</h3>

@@ -1,6 +1,6 @@
 export default function HeroVisual() {
   return (
-    <div className="hero-visual-v2" aria-hidden="true">
+    <div className="hero-visual-v2" data-hero="visual" aria-hidden="true">
       <svg
         className="hero-artwork"
         viewBox="0 0 1080 620"
@@ -20,12 +20,14 @@ export default function HeroVisual() {
 
         {/* broad pale-blue ribbon behind the skyline */}
         <path
+          data-hero="ribbon-primary"
           d="M112 173C213 84 365 37 527 47C676 56 793 111 908 156C974 182 1024 193 1080 194V530C1019 519 962 519 910 531C806 555 706 585 577 592C437 600 314 579 220 531C132 486 83 427 72 356C62 292 72 223 112 173Z"
           fill="url(#swooshGradient)"
         />
 
         {/* a softer translucent overlap to reproduce the layered swoosh */}
         <path
+          data-hero="ribbon-secondary"
           d="M77 227C137 142 258 91 397 74C493 62 578 69 649 87C524 102 412 143 331 211C256 274 218 352 220 425C170 409 127 385 96 352C58 312 49 267 77 227Z"
           fill="#EAF7FF"
           fillOpacity="0.78"
@@ -33,6 +35,7 @@ export default function HeroVisual() {
 
         {/* The photo is a normal standalone image clipped by the organic SVG path. */}
         <image
+          data-hero="skyline"
           href="/assets/perth-skyline.png"
           x="118"
           y="0"
@@ -45,6 +48,7 @@ export default function HeroVisual() {
 
       <svg
         className="hero-leaf-decoration"
+        data-hero="leaf"
         viewBox="0 0 190 265"
         fill="none"
         role="presentation"

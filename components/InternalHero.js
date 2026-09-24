@@ -10,7 +10,7 @@ export default function InternalHero({
   compact = false,
 }) {
   return (
-    <section className={`about-hero internal-hero${variant === 'cream' ? ' internal-hero--cream' : ''}${compact ? ' internal-hero--compact' : ''}`}>
+    <section className={`about-hero internal-hero${variant === 'cream' ? ' internal-hero--cream' : ''}${compact ? ' internal-hero--compact' : ''}`} data-animate="internal-hero">
       <svg
         className="about-hero-clip-defs"
         width="0"
@@ -25,21 +25,21 @@ export default function InternalHero({
         </defs>
       </svg>
 
-      <div className="about-hero-bg-decor" aria-hidden="true">
+      <div className="about-hero-bg-decor" aria-hidden="true" data-ih="decoration">
         <div className="about-hero-shape about-hero-shape-1" />
         <div className="about-hero-shape about-hero-shape-2" />
       </div>
 
       <div className="about-hero-inner container">
         <div className="about-hero-copy">
-          <span className="about-hero-eyebrow">{eyebrow}</span>
-          <h1 className="about-hero-title">{title}</h1>
-          <div className="about-hero-swoosh" aria-hidden="true" />
-          <p className="about-hero-desc">{description}</p>
+          <span className="about-hero-eyebrow" data-ih="eyebrow">{eyebrow}</span>
+          <h1 className="about-hero-title" data-ih="title">{title}</h1>
+          <div className="about-hero-swoosh" aria-hidden="true" data-ih="accent" />
+          <p className="about-hero-desc" data-ih="description">{description}</p>
         </div>
 
         {image ? (
-          <div className="about-hero-visual">
+          <div className="about-hero-visual" data-ih="image">
             <div className="about-hero-image-wrap">
               <Image
                 src={image}
@@ -52,7 +52,7 @@ export default function InternalHero({
             </div>
           </div>
         ) : (
-          <div className="about-hero-visual internal-hero-botanical" aria-hidden="true">
+          <div className="about-hero-visual internal-hero-botanical" aria-hidden="true" data-ih="image">
             <div className="leaf-sprig leaf-left internal-hero-sprig">
               <i />
               <i />

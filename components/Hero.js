@@ -4,7 +4,7 @@ import HeroVisual from './HeroVisual';
 
 export default function Hero() {
   return (
-    <section className="hero hero-v2" id="home">
+    <section className="hero hero-v2" id="home" data-animate="home-hero">
       <div className="hero-shell-v2">
         <div className="hero-copy-v2">
           <h1 className="sr-only">Life looks better together.</h1>
@@ -16,14 +16,15 @@ export default function Hero() {
             height={189}
             priority
             className="hero-title-art"
+            data-hero="title"
           />
 
-          <p className="hero-description-v2">
+          <p className="hero-description-v2" data-hero="description">
             Personalised NDIS support services
             <br className="desktop-only" /> for individuals and families across Perth.
           </p>
 
-          <div className="hero-actions hero-actions-v2">
+          <div className="hero-actions hero-actions-v2" data-hero="actions">
             <Link href="/contact" className="primary-button">
               Get Support <span aria-hidden="true">→</span>
             </Link>
@@ -38,6 +39,7 @@ export default function Hero() {
 
       <svg
         className="hero-bottom-wave-v2"
+        data-hero="bottom-wave"
         viewBox="0 0 1600 92"
         preserveAspectRatio="none"
         aria-hidden="true"

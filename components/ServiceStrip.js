@@ -16,20 +16,20 @@ const services = [
 
 export default function ServiceStrip() {
   return (
-    <section className="service-strip" id="services" aria-label="Support services">
+    <section className="service-strip" id="services" aria-label="Support services" data-animate="service-strip">
       <div className="service-grid">
         {services.map(({ label, Icon }, index) => (
-          <article className="service-item" key={label.join('-')}>
-            <div className="service-icon">
+          <article className="service-item" key={label.join('-')} data-service-item>
+            <div className="service-icon" data-service-icon>
               <Icon />
             </div>
-            <div className="service-label">
+            <div className="service-label" data-service-label>
               {label.map((line) => (
                 <span key={line}>{line}</span>
               ))}
             </div>
             {index < services.length - 1 && (
-              <span className="service-divider" aria-hidden="true" />
+              <span className="service-divider" aria-hidden="true" data-service-divider />
             )}
           </article>
         ))}

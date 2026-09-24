@@ -50,10 +50,11 @@ export default function ServiceDetails() {
         <section
           key={title}
           id={id}
+          data-animate="content-split"
           className={`service-detail service-detail--${bg}${index % 2 === 1 ? ' service-detail--flip' : ''}`}
         >
           <div className="container service-detail-inner">
-            <div className="service-detail-visual" aria-hidden={false}>
+            <div className="service-detail-visual" aria-hidden={false} data-cs="image-primary">
               <div className="service-detail-image-wrap">
                 <Image
                   src={image}
@@ -70,9 +71,9 @@ export default function ServiceDetails() {
               </div>
             </div>
             <div className="service-detail-copy">
-              <span className="section-label">0{index + 1} — SUPPORT</span>
-              <h2 className="service-detail-title">{title}</h2>
-              <p className="service-detail-text">{text}</p>
+              <span className="section-label" data-cs="eyebrow">0{index + 1} — SUPPORT</span>
+              <h2 className="service-detail-title" data-cs="title">{title}</h2>
+              <p className="service-detail-text" data-cs="copy">{text}</p>
             </div>
           </div>
         </section>
