@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import { contactPhoneDisplay, contactPhoneHref } from '../lib/contactPhone';
 
 const quickLinks = [
   { label: 'Home', href: '/' },
@@ -85,9 +86,17 @@ export default function Footer() {
             <h2 className="footer-heading">Get In Touch</h2>
             <p className="footer-contact-row">
               <span className="footer-contact-label">Phone</span>
-              <a className="footer-phone" href="tel:+61415611071">
-                0415 611 071
-              </a>
+              {(() => {
+                const display = contactPhoneDisplay();
+                const href = contactPhoneHref();
+                return href ? (
+                  <a className="footer-phone" href={href}>
+                    {display}
+                  </a>
+                ) : (
+                  <span className="footer-phone">{display}</span>
+                );
+              })()}
             </p>
             <p className="footer-contact-row">
               <span className="footer-contact-label">Location</span>

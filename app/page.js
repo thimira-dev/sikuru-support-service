@@ -3,7 +3,9 @@ import Hero from '../components/Hero';
 import ServiceStrip from '../components/ServiceStrip';
 import EveryoneBelongs from '../components/EveryoneBelongs';
 import LifeGallery from '../components/LifeGallery';
-import TestimonialsSection from '../components/TestimonialsSection';
+// Testimonials temporarily hidden for client review — re-enable the import
+// and render below when genuine client testimonials are supplied.
+// import TestimonialsSection from '../components/TestimonialsSection';
 import Footer from '../components/Footer';
 
 export default function HomePage() {
@@ -15,7 +17,7 @@ export default function HomePage() {
         <ServiceStrip />
         <EveryoneBelongs />
         <LifeGallery />
-        <TestimonialsSection />
+        {/* <TestimonialsSection /> — temporarily hidden for client review */}
       </main>
       <Footer />
     </>

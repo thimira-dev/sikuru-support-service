@@ -31,8 +31,8 @@ export default function NDISIntro() {
 
           <figure className="who-we-are-polaroid who-we-are-polaroid-1" data-cs="image-primary">
             <Image
-              src="/assets/caregiver-reference.jpg"
-              alt="Support worker sharing a happy conversation with a participant"
+              src="/assets/ndis-support.jpg"
+              alt="Support worker sitting with an older wheelchair user"
               fill
               sizes="(max-width: 768px) 200px, 260px"
             />

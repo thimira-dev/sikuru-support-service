@@ -4,6 +4,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import { usePathname } from 'next/navigation';
+import { contactPhoneDisplay, contactPhoneHref } from '../lib/contactPhone';
 
 const navigation = [
   { label: 'Home', href: '/' },
@@ -63,10 +64,21 @@ export default function Navbar() {
         </nav>
 
         <div className="nav-actions">
-          <a className="phone-pill" href="tel:+61415611071">
-            <span aria-hidden="true">☎</span>
-            <span>0415 611 071</span>
-          </a>
+          {(() => {
+            const display = contactPhoneDisplay();
+            const href = contactPhoneHref();
+            return href ? (
+              <a className="phone-pill" href={href}>
+                <span aria-hidden="true">☎</span>
+                <span>{display}</span>
+              </a>
+            ) : (
+              <span className="phone-pill" aria-label={`Phone ${display}`}>
+                <span aria-hidden="true">☎</span>
+                <span>{display}</span>
+              </span>
+            );
+          })()}
           <Link className="primary-button compact" href="/contact">
             Enquire Now <span aria-hidden="true">→</span>
           </Link>

@@ -38,8 +38,8 @@ export default function AboutHero() {
         <div className="about-hero-visual" data-ih="image">
           <div className="about-hero-image-wrap">
             <Image
-              src="/assets/caregiver-reference.jpg"
-              alt="A support worker sharing a warm conversation with a participant"
+              src="/assets/about-hero.jpg"
+              alt="People taking part in a group discussion"
               width={520}
               height={350}
               priority

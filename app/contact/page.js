@@ -8,7 +8,7 @@ import Footer from '../../components/Footer';
 export const metadata = {
   title: 'Contact – Sikuru Support Service',
   description:
-    'Get in touch with Sikuru Support Service across Perth, WA. Call 0415 611 071 or send an enquiry.',
+    'Get in touch with Sikuru Support Service across Perth, WA. Send an enquiry.',
 };
 
 export default function ContactPage() {

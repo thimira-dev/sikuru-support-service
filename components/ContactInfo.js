@@ -1,4 +1,8 @@
+import { contactPhoneDisplay, contactPhoneHref } from '../lib/contactPhone';
+
 export default function ContactInfo() {
+  const display = contactPhoneDisplay();
+  const href = contactPhoneHref();
   return (
     <section className="our-approach contact-info">
       <div className="our-approach-bg-decor" aria-hidden="true">
@@ -12,9 +16,13 @@ export default function ContactInfo() {
         <div className="contact-info-grid">
           <div className="contact-info-item">
             <span className="contact-info-label">Phone</span>
-            <a className="contact-info-value" href="tel:+61415611071">
-              0415 611 071
-            </a>
+            {href ? (
+              <a className="contact-info-value" href={href}>
+                {display}
+              </a>
+            ) : (
+              <span className="contact-info-value">{display}</span>
+            )}
           </div>
           <div className="contact-info-item">
             <span className="contact-info-label">Location</span>

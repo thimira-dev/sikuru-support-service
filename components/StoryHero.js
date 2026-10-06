@@ -12,8 +12,8 @@ export default function StoryHero() {
         </>
       }
       description="Sikuru is built around a simple idea: meaningful support starts by seeing the person before the service."
-      image="/assets/caregiver-reference.jpg"
-      imageAlt="Support worker sharing a warm conversation with a participant"
+      image="/assets/our-story-hero.jpg"
+      imageAlt="Support worker spending time with an older couple"
       variant="cream"
     />
   );

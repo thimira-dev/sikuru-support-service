@@ -1,5 +1,6 @@
 import './globals.css';
 import SiteAnimations from '../components/animations/SiteAnimations';
+import WhatsAppFloat from '../components/WhatsAppFloat';
 
 export const metadata = {
   title: {
@@ -21,6 +22,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body>
         {children}
+        <WhatsAppFloat />
         <SiteAnimations />
       </body>
     </html>

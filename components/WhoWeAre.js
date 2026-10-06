@@ -30,8 +30,8 @@ export default function WhoWeAre() {
 
           <figure className="who-we-are-polaroid who-we-are-polaroid-1" data-cs="image-primary">
             <Image
-              src="/assets/garden-support-reference.jpg"
-              alt="Participant enjoying a gardening activity"
+              src="/assets/about-who-we-are.jpg"
+              alt="Community members walking together outdoors"
               fill
               sizes="(max-width: 768px) 200px, 260px"
             />

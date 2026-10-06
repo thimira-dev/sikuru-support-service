@@ -12,8 +12,8 @@ export default function ServicesHero() {
         </>
       }
       description="Flexible support designed around individual needs, routines and goals."
-      image="/assets/garden-support-reference.jpg"
-      imageAlt="Participant enjoying a gardening activity with support"
+      image="/assets/services-hero.jpg"
+      imageAlt="Support worker assisting a participant"
     />
   );
 }

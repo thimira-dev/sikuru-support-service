@@ -12,8 +12,8 @@ export default function NDISHero() {
         </>
       }
       description="Navigating support can feel complicated. We aim to make conversations clear, respectful and centred around the individual."
-      image="/assets/caregiver-reference.jpg"
-      imageAlt="Support worker sharing a warm conversation with a participant"
+      image="/assets/ndis-hero.jpg"
+      imageAlt="Older adults socialising together in an accessible living space"
     />
   );
 }

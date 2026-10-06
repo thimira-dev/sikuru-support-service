@@ -1,20 +1,17 @@
+import { contactPhoneDisplay, contactPhoneHref } from '../lib/contactPhone';
+
+const callIcon = (
+  <svg viewBox="0 0 32 32" fill="none" aria-hidden="true">
+    <path
+      d="M8 5h6l2 7-3.5 2.5c1 3 3.5 5.5 6.5 6.5L21.5 18l7 2v6c0 1-1 2-2 2C15 28 4 17 4 7c0-1 1-2 2-2h2Z"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinejoin="round"
+    />
+  </svg>
+);
+
 const options = [
-  {
-    title: 'Call us',
-    text: '0415 611 071',
-    href: 'tel:+61415611071',
-    linkLabel: 'Call 0415 611 071',
-    icon: (
-      <svg viewBox="0 0 32 32" fill="none" aria-hidden="true">
-        <path
-          d="M8 5h6l2 7-3.5 2.5c1 3 3.5 5.5 6.5 6.5L21.5 18l7 2v6c0 1-1 2-2 2C15 28 4 17 4 7c0-1 1-2 2-2h2Z"
-          stroke="currentColor"
-          strokeWidth="2"
-          strokeLinejoin="round"
-        />
-      </svg>
-    ),
-  },
   {
     title: 'Send an enquiry',
     text: 'Use the form below.',
@@ -46,6 +43,16 @@ const options = [
 ];
 
 export default function ContactOptions() {
+  const phoneDisplay = contactPhoneDisplay();
+  const phoneHref = contactPhoneHref();
+  const callOption = {
+    title: 'Call us',
+    text: phoneDisplay,
+    href: phoneHref,
+    linkLabel: `Call ${phoneDisplay}`,
+    icon: callIcon,
+  };
+  const allOptions = [callOption, ...options];
   return (
     <section className="about-values contact-options" aria-label="Contact options" data-animate="card-grid">
       <div className="about-values-inner container">
@@ -53,7 +60,7 @@ export default function ContactOptions() {
         <h2 className="about-values-heading" data-cg="header">Three simple ways to reach us.</h2>
 
         <div className="about-values-grid contact-options-grid">
-          {options.map(({ title, text, href, linkLabel, icon }) => (
+          {allOptions.map(({ title, text, href, linkLabel, icon }) => (
             <article className="about-value-card" key={title} data-cg="card">
               <div className="about-value-icon" aria-hidden="true" data-cg-icon>
                 {icon}
