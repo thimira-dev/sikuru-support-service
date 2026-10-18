@@ -25,6 +25,12 @@ export default function ContactInfo() {
             )}
           </div>
           <div className="contact-info-item">
+            <span className="contact-info-label">Email</span>
+            <a className="contact-info-value" href="mailto:contact@sikuru.com.au">
+              contact@sikuru.com.au
+            </a>
+          </div>
+          <div className="contact-info-item">
             <span className="contact-info-label">Location</span>
             <span className="contact-info-value">Perth, Western Australia</span>
           </div>

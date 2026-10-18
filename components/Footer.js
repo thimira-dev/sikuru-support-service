@@ -99,6 +99,12 @@ export default function Footer() {
               })()}
             </p>
             <p className="footer-contact-row">
+              <span className="footer-contact-label">Email</span>
+              <a className="footer-phone" href="mailto:contact@sikuru.com.au">
+                contact@sikuru.com.au
+              </a>
+            </p>
+            <p className="footer-contact-row">
               <span className="footer-contact-label">Location</span>
               <span className="footer-locale">Perth, Western Australia</span>
             </p>
